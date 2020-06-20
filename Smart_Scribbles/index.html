@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=500px, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Smart_Scribbles</title>
+    <style type="text/css">
+        .container-fluid{
+            /* background-color: red; */
+            padding-top: 80px;
+        }
+        .main{
+            width:50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-top: 5px;
+            padding-left: 10px;
+            padding-top: 20px;
+            padding-right: 10px;
+            /* background-color: blue; */
+            border-top:1px solid gray;
+        }
+        .authors{
+            text-align: center;
+            font-size: 20px;  
+        }
+        .abstract{
+            margin-top: 15px;
+        }
+        .bibtex{
+            margin-top: 10px;
+            border-top:1px solid gray;
+        }
+        a{color:#000000;}      
+        /* a:visited {color:gray;}   */
+        a:hover {color:#0000FF;}  
+        a:active {color:gray;} 
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h3 class="text-center">
+            Smart Scribbles for Image Matting
+        </h3>
+        <p class="authors">
+		    <a href="http://faculty.dlut.edu.cn/yangxin/zh_CN/index/949121/list/index.htm">Xin Yang<sup>*</sup></a>,
+            <a href="https://qiaoyu2015.github.io/">Yu Qiao<sup>*</sup></a>,
+            <a href="#">Shaozhe Chen</a>,
+            <a href="http://www.shengfenghe.com/">Shengfeng He<sup>†</sup></a>,
+			<a href="https://baike.baidu.com/item/%E5%B0%B9%E5%AE%9D%E6%89%8D/1476739?fr=aladdin">Baocai Yin</a>,
+            <a href="http://faculty.dlut.edu.cn/zhangq/zh_CN/index/990263/list/index.htm">Qiang Zhang</a>,
+            <a href="https://baike.baidu.com/item/%E9%AD%8F%E5%B0%8F%E9%B9%8F/1245643?fr=aladdin">Xiaopeng Wei<sup>†</sup></a>,
+			<a href="https://www.cs.cityu.edu.hk/~rynson/">Rynson W.H. Lau</a>,
+        </p>
+        <p style="font-size: 17px; text-align: center; margin-top: -5px;">(* Joint first authors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; † corresponding author)</pclass="text-center" style="font-size: 20px; ">
+        <p class="text-center" style="font-size: 20px; "><i>ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM), 2020</i></p>
+        <div class="main">
+            <img src="figures/visualization.png" width = "100%">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we prpose a new framework which can produce high-quality alpha mattes from limited scribbles. 
+			The users only need to draw scribbles on informative regions to suggest the foreground, background and unknown. More detailed comparisons and analysis can refer to our paper.
+            <div class="abstract">
+                <h2 >
+                    Abstract
+                </h2 >
+                
+                <p style="word-break: break-word; text-align:justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Image matting is an ill-posed problem that usually requires additional user input, such as trimaps or scribbles.
+                    Drawing a fine trimap requires a large amount of user effort, while using scribbles can hardly obtain satisfactory alpha mattes for non-professional 
+					users. Some recent deep learning based matting networks rely on large-scale composite datasets for training to improve performance, resulting in the 
+					occasional appearance of obvious artifacts when processing natural images. In this paper, we explore the intrinsic relationship between user input 
+					and alpha mattes, and strike a balance between user effort and the quality of alpha mattes. In particular, we propose an interactive framework, 
+					referred to as smart scribbles, to guide users to draw few scribbles on the input images to produce high-quality alpha mattes. It first infers the 
+					most informative regions of an image for drawing scribbles to indicate different categories (foreground, background or unknown), then spreads these 
+					scribbles (i.e., the category labels) to the rest of the image via our well-designed two-phase propagation. Both neighboring low-level affinities and 
+					high-level semantic features are considered during the propagation process. Our method can be optimized without large-scale matting datasets, and 
+					exhibits more universality in real situations. Extensive experiments demonstrate that smart scribbles can produce more accurate alpha mattes with 
+					reduced additional input, compared to the state-of-the-art matting methods.
+                </p>
+            </div>
+            <div class="method">
+                <h2>Method</h2>
+                <img src="figures/Pipeline.png" width="100%" style="margin-top: 10px;">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    The pipeline of the proposed method. The input image is first over-segmented into superpixels, then is divided into regular rectangle regions of the 
+					same size.We calculate the information content of each region and the most informative region is automatically selected for users to draw scribbles, 
+					specifying the foreground (in red), background (in blue) and unknown areas (in green). These labels are then propagated to unlabeled regions to update 
+					the probability matrix (PrM) via two-phase propagation. During CNN propagation, we gather all superpixel external rectangles as input, and the 
+					superpixels with scribbles are used for training, while for the others we predict category labels for them using the trained model. After CNN 
+					propagation, we update PrM to generate a refined trimap and the final matte can be produced by an embedded existing matting algorithm.
+                </p>
+            </div>
+            <!--<div class="our-dataset">
+                <h2>Our Dataset</h2>
+                <img src="figures/our-dataset.png" alt="" width="100%" style="margin-top: -10px;">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    The above picture is some examples of our <b>Distinctions-646</b> whcih is composed of  646 individual FG images. We divide
+                    these FG objects into 596 and 50, and then produce 59,600
+                    training images and 1000 test images according to the composition
+                    rules in DIM. Meanwhile，we will release our composition acode which is accelerated by GPU and faster 3-5 times than the original code.
+                </p>
+            </div>-->
+            <div class="Downloads">
+                <h2>Downloads</h2>
+                <p style="font-size: 20px;">Source Code:&nbsp;<a href="#">Code</a></p>
+                <p style="font-size: 20px; margin-top: -10px;">Paper:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Paper</a></p><br>
+                
+
+            </div>
+
+
+            <div class="bibtex">
+                <h5 style="color: gray;">
+                    BibTex
+                </h5>
+                <pre>Coming soon.</pre>
+            </div>
+            
+        </div>
+   
+    </div>
+</body>
+</html>
+<!--
+    Attention :
+    Alt-B can directly open this html page in Chrome
+-->
+
 
