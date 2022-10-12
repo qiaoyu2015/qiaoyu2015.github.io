@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=500px, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>I2GFP</title>
+    <style type="text/css">
+        .container-fluid{
+            /* background-color: red; */
+            padding-top: 80px;
+        }
+        .main{
+            width:50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-top: 5px;
+            padding-left: 10px;
+            padding-top: 20px;
+            padding-right: 10px;
+            /* background-color: blue; */
+            border-top:1px solid gray;
+        }
+        .authors{
+            text-align: center;
+            font-size: 20px;  
+        }
+        .abstract{
+            margin-top: 15px;
+        }
+        .bibtex{
+            margin-top: 10px;
+            border-top:1px solid gray;
+        }
+        a{color:#000000;}      
+        /* a:visited {color:gray;}   */
+        a:hover {color:#0000FF;}  
+        a:active {color:gray;} 
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h3 class="text-center">
+            Wider and Higher: Intensive Integration and Global Foreground Perception for Image Matting
+        </h3>
+        <p class="authors">
+            <a href="https://qiaoyu2015.github.io/">Yu Qiao<sup>*</sup></a>,
+            <a href="#">Ziqi Wei<sup>*</sup></a>,
+			<a href="https://wukaoliu.github.io/">Yuhao Liu</a>,
+            <a href="#">Yuxin Wang<sup>†</sup></a>,
+            <a href="#">Dongsheng Zhou</a>,
+            <a href="#">Qiang Zhang</a>,
+            <a href="http://faculty.dlut.edu.cn/yangxin/zh_CN/index/949121/list/index.htm">Xin Yang</a>
+        </p>
+        <p style="font-size: 17px; text-align: center; margin-top: -5px;">(* Joint first authors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; † corresponding author)</pclass="text-center" style="font-size: 20px; ">
+        <p class="text-center" style="font-size: 20px; "><i>Computer Graphics International (CGI), 2022</i></p>
+        <div class="main">
+            <img src="figures/visualization.png" width = "100%">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In this paper, we propose the Intensive Integration and Global Foreground Perception network (I2GFP), providing a wider and higher feature representation with the
+			sacrifice of model depth. Extensive experiments on public datasets can prove our motivation and the proposed model.
+            <div class="abstract">
+                <h2 >
+                    Abstract
+                </h2 >
+                
+                <p style="word-break: break-word; text-align:justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This paper reviews recent deep-learning-based matting research and conceives our wider and higher motivation for image matting.
+					Many approaches achieve alpha mattes with complex encoders to extract
+					robust semantics, then resort to the U-net-like decoder to concatenate or
+					fuse encoder features. However, image matting is essentially a pixel-wise
+					regression, and the ideal situation is to perceive the maximum opacity correspondence from the input image. In this paper, we argue that
+					the high-resolution feature representation, perception and communication are more crucial for matting accuracy. Therefore, we propose an Intensive Integration and Global Foreground Perception network (I2GFP)
+					to integrate wider and higher feature streams. Wider means we combine
+					intensive features in each decoder stage, while higher suggests we retain
+					high-resolution intermediate features and perceive large-scale foreground
+					appearance. Our motivation sacrifices model depth for a significant performance promotion. We perform extensive experiments to prove the
+					proposed I2GFP model, and state-of-the-art results can be achieved on
+					different public datasets.
+                </p>
+            </div>
+            <div class="method">
+                <h2>Method</h2>
+                <img src="figures/Pipeline.png" width="100%" style="margin-top: 10px;">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    The overall architecture of the proposed Intensive Integration and Global Foreground Perception network (I2GFP). We employ simple backbone to extract necessary
+					semantics and utilize intensive connections to integrate different-level features. The
+					global foreground perception can capture rich appearances to complement details.
+                </p>
+            </div>
+            <div class="dataset">
+                <h2>Comparisons on Public Datasets</h2>
+                <img src="figures/adobe-dataset.png" alt="" width="100%" style="margin-top: -10px;">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    The visual comparisons on the Adobe Composition-1k.
+                </p>
+				<img src="figures/our-dataset.png" alt="" width="100%" style="margin-top: -10px;">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    The visual comparisons on the Distinctions-646.
+                </p>
+            </div>
+            <div class="Downloads">
+                <h2>Downloads</h2>
+                <p style="font-size: 20px;">Source Code:&nbsp;<a href="#">Code</a></p>
+                <p style="font-size: 20px; margin-top: -10px;">Paper:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Paper</a></p><br>
+                
+
+            </div>
+
+
+            <div class="bibtex">
+                <h5 style="color: gray;">
+                    BibTex
+                </h5>
+                <!--<pre>@{Qiao2020MSIA,
+	author = {Qiao, Yu and Liu, Yuhao and Zhu, Qiang and Yang, Xin and Wang, Yuxin and Zhang, Qiang and Wei, Xiaopeng},
+	title = {Multi-scale Information Assembly for Image Matting},
+	journal = {CGF},
+	volume = {39},
+	number = {7},
+	pages = {565-574},
+	year = {2020},
+}</pre>-->
+            </div>
+            
+        </div>
+   
+    </div>
+</body>
+</html>
+<!--
+    Attention :
+    Alt-B can directly open this html page in Chrome
+-->
+
