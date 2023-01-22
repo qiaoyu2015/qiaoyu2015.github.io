@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +117,7 @@
             <div class="Downloads">
                 <h2>Downloads</h2>
                 <p style="font-size: 20px;">Source Code:&nbsp;<a href="#">Code</a></p>
-                <p style="font-size: 20px; margin-top: -10px;">Paper:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Paper</a></p><br>
+                <p style="font-size: 20px; margin-top: -10px;">Paper:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/abs/2112.05975v1">Paper</a></p><br>
                 
 
             </div>
@@ -147,3 +148,155 @@
     Alt-B can directly open this html page in Chrome
 -->
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=500px, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>CPRAL</title>
+    <style type="text/css">
+        .container-fluid{
+            /* background-color: red; */
+            padding-top: 80px;
+        }
+        .main{
+            width:50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-top: 5px;
+            padding-left: 10px;
+            padding-top: 20px;
+            padding-right: 10px;
+            /* background-color: blue; */
+            border-top:1px solid gray;
+        }
+        .authors{
+            text-align: center;
+            font-size: 20px;  
+        }
+        .abstract{
+            margin-top: 15px;
+        }
+        .bibtex{
+            margin-top: 10px;
+            border-top:1px solid gray;
+        }
+        a{color:#000000;}      
+        /* a:visited {color:gray;}   */
+        a:hover {color:#0000FF;}  
+        a:active {color:gray;} 
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h3 class="text-center">
+            CPRAL: Collaborative Panoptic-Regional Active Learning for Semantic Segmentation
+        </h3>
+        <p class="authors">
+            <a href="https://qiaoyu2015.github.io/">Yu Qiao<sup>*</sup></a>,
+            <a href="https://wukaoliu.github.io/">Jincheng Zhu<sup>*</sup></a>,
+			<a href="#">Chengjiang Long</a>,
+            <a href="#">Zeyao Zhang</a>,
+            <a href="#">Yuxin Wang</a>,
+            <a href="#">Zhenjun Du</a>,
+            <a href="http://faculty.dlut.edu.cn/yangxin/zh_CN/index/949121/list/index.htm">Xin Yang<sup>†</sup></a>
+        </p>
+        <p style="font-size: 17px; text-align: center; margin-top: -5px;">(* Joint first authors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; † corresponding author)</pclass="text-center" style="font-size: 20px; ">
+        <p class="text-center" style="font-size: 20px; "><i>American Association for Artificial Intelligence (AAAI), 2022</i></p>
+        <div class="main">
+            <video width = "100%" autoplay="autoplay" controls="controls">
+				<source src="figures/Smart_Seg_demo.mp4" type="video/mp4"></source>
+			</video>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In this paper, we propose a Collaborative Panoptic-Regional Active Learning framework (CPRAL) to 
+			mitigate the requirements for high-accuracy data for semantic segmentation. We also design an interactive Smart Segmentation Tool to achieve effective and efficient semantic annotations.
+            <div class="abstract">
+                <h2 >
+                    Abstract
+                </h2 >
+                
+                <p style="word-break: break-word; text-align:justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acquiring the most representative examples via active learning (AL) can benefit many data-dependent computer vision tasks by minimizing efforts of image-level or pixel-wise annotations. In this paper, we propose a novel Collaborative
+					Panoptic-Regional Active Learning framework (CPRAL) to address the semantic segmentation task. For a small batch of images initially sampled with pixel-wise annotations, we employ panoptic information to initially select unlabeled samples. Considering the class imbalance in the segmentation dataset, we import a Regional Gaussian Attention module
+					(RGA) to achieve semantics-biased selection. The subset is highlighted by vote entropy and then attended by Gaussian
+					kernels to maximize the biased regions. We also propose a Contextual Labels Extension (CLE) to boost regional annotations with contextual attention guidance. With the collaboration of semantics-agnostic panoptic matching and regionbiased selection and extension, our CPRAL can strike a balance between labeling efforts and performance and compromise the semantics distribution. We perform extensive experiments on Cityscapes and BDD10K and show that CPRAL
+					outperforms the cutting-edge methods with impressive results and less labeling proportion.
+                </p>
+            </div>
+            <div class="method">
+                <h2>Method</h2>
+                <img src="figures/Pipeline.png" width="100%" style="margin-top: 10px;">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    The pipeline of the proposed active learning framework. The purple, green and gray stages correspond to the panoptic selection, regional selection and annotation phase. There are
+					four phases in an iteration to finish the samples selection and annotation process. (1): Take unlabeled examples as input
+					and extract multi-scale features to regress a matching rating. (2) Regional Gaussian Attention (RGA): Perform vote entropy, kernel filter, and non-maximum suppression (NMS)
+					on panoptic samples to decide semantics-biased regions. (3) Oracle or our designed label tool can annotate the selected
+					subset with high accuracy and then move them to the labeled pool. (4) Contextual Labels Extension (CLE): Take images,
+					regional labels and masks as input, extract patches to boost annotations with contextual attention as guidance.
+                </p>
+            </div>
+            <div class="our-dataset">
+                <h2>Comparisons on Public Datasets</h2>
+                <img src="figures/city_mobile_sota.png" alt="" width="24%" style="margin-top: -10px;" title="CityScapes&MobileNet">
+				<img src="figures/city_DRN_sota.png" alt="" width="24%" style="margin-top: -10px;" title="Cityscapes&DRN">
+				<img src="figures/city_mobile_sota.png" alt="" width="24%" style="margin-top: -10px;" title="BDD&MobileNet">
+				<img src="figures/city_mobile_sota.png" alt="" width="24%" style="margin-top: -10px;" title="BDD&DRN">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    The visual comparisons with SOTA on the Cityscapes and BDD100K datasets with MobileNet and DRN as the backbone.
+                </p>
+				<img src="figures/city_mobile.png" alt="" width="24%" style="margin-top: -10px;" title="CityScapes&MobileNet">
+				<img src="figures/city_DRN.png" alt="" width="24%" style="margin-top: -10px;" title="Cityscapes&DRN">
+				<img src="figures/bdd_mobile.png" alt="" width="24%" style="margin-top: -10px;" title="BDD&MobileNet">
+				<img src="figures/bdd_DRN.png" alt="" width="24%" style="margin-top: -10px;" title="BDD&DRN">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    The performance of regional selection.
+                </p>
+				<img src="figures/robust_.png" alt="" width="30%" style="margin-top: -10px;" title="CityScapes&MobileNet">
+				<img src="figures/robust_city_drn.png" alt="" width="30%" style="margin-top: -10px;" title="Cityscapes&DRN">
+				<img src="figures/robust_bdd_mobile_.png" alt="" width="30%" style="margin-top: -10px;" title="BDD&MobileNet">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Robustness Analysis.
+                </p>
+            </div>
+            <div class="Downloads">
+                <h2>Downloads</h2>
+                <p style="font-size: 20px;">Source Code:&nbsp;<a href="#">Code</a></p>
+                <p style="font-size: 20px; margin-top: -10px;">Paper:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/abs/2112.05975v1">Paper</a></p><br>
+                
+
+            </div>
+
+
+            <div class="bibtex">
+                <h5 style="color: gray;">
+                    BibTex
+                </h5>
+                <!--<pre>@article{Qiao2020MSIA,
+	author = {Qiao, Yu and Liu, Yuhao and Zhu, Qiang and Yang, Xin and Wang, Yuxin and Zhang, Qiang and Wei, Xiaopeng},
+	title = {Multi-scale Information Assembly for Image Matting},
+	journal = {CGF},
+	volume = {39},
+	number = {7},
+	pages = {565-574},
+	year = {2020},
+}</pre>
+-->
+            </div>
+            
+        </div>
+   
+    </div>
+</body>
+</html>
+<!--
+    Attention :
+    Alt-B can directly open this html page in Chrome
+-->
+
+>>>>>>> cde41588b18219d773dba559f7479f1174986baa
