@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=500px, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>PGVS-Net</title>
+    <style type="text/css">
+        .container-fluid{
+            /* background-color: red; */
+            padding-top: 80px;
+        }
+        .main{
+            width:80%;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 5px;
+            padding-left: 10px;
+            padding-top: 20px;
+            padding-right: 10px;
+            /* background-color: blue; */
+            border-top:1px solid gray;
+        }
+        .authors{
+            text-align: center;
+            font-size: 20px;  
+        }
+        .abstract{
+            margin-top: 15px;
+        }
+		.our-dataset{
+            margin-top: 15px;
+        }
+		.video-results{
+            margin-top: 15px;
+        }
+        .bibtex{
+            margin-top: 10px;
+            border-top:1px solid gray;
+        }
+        a{color:#000000;}      
+        /* a:visited {color:gray;}   */
+        a:hover {color:#0000FF;}  
+        a:active {color:gray;} 
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h2 class="text-center">
+            Multi-view Spectral Polarization Propagation for Video Glass Segmentation
+        </h2>
+        <p class="authors">
+            <a href="https://qiaoyu2015.github.io/">Yu Qiao</a>,
+            <a href="https://dongshuhao.github.io/">Bo Dong<sup>*</sup></a>,
+			<a href="#">Ao Jin</a>,
+			<a href="#">Yu Fu</a>,
+			<a href="https://sites.google.com/view/shbaek/">Seung-Hwan Baek</a>,
+			<a href="https://www.cs.princeton.edu/~fheide/">Felix Heide</a>,
+			<a href="https://www.cs.wm.edu/~ppeers/">Pieter Peers</a>,
+			<a href="#">Xiaopeng Wei<sup>*</sup></a>,
+            <a href="http://faculty.dlut.edu.cn/yangxin/zh_CN/index/949121/list/index.htm">Xin Yang<sup>*</sup></a>,
+        </p>
+        <p style="font-size: 17px; text-align: center; margin-top: -5px;">(* Joint corresponding authors)</pclass="text-center" style="font-size: 20px; ">
+        <p class="text-center" style="font-size: 20px; "><i>IEEE International Conference on Computer Vision (ICCV), 2023</i></p>
+        <div class="main">
+            <img src="figures/teaser2_.jpg" width = "100%">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We propose a Polarization Video Glass Segmentation network (PGVS-Net), which can exploit historical multi-view spectral 
+			polarization cues to segment glass areas. The video results are shown below.
+            <div class="abstract">
+                <h3 >
+                    Abstract
+                </h3 >
+                
+                <p style="word-break: break-word; text-align:justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this paper, we present the first polarization-guided video glass segmentation propagation solution (PGVS-Net)
+					that can robustly and coherently propagate glass segmentation in RGB-P video sequences. By leveraging spatio-temporal polarization and color information, 
+					our method effectively combines multi-view polarization cues and thus can alleviate the view dependence of single-input intensity variations on glass objects. 
+					We demonstrate that our model can outperform glass segmentation on RGB-only video sequences as well as produce more robust segmentation than per-frame RGB-P 
+					single-image segmentation methods. To train and validate PGVS-Net, we introduce the first RGB-P Glass Video dataset, termed PGV-117, of 117 video sequences, 
+					which will be publicly released upon publication.
+                </p>
+            </div>
+            <div class="method">
+                <h3>Method</h3>
+                <img src="figures/Pipeline.jpg" width="100%" style="text-align: center; margin-top: 10px;">
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    The RGB-P Memory and PGI fused keys are designed to store long-range multi-view 
+					polarization cues. The short-range spectral propagation are implemented by the CMTA and PTF modules.
+                </p>
+            </div>
+            <div class="our-dataset">
+                <h3>Our Dataset</h3>
+				<div style="text-align: center;">
+					<img src="figures/our-dataset.jpg" alt="" width="60%" style="margin-top: -10px;">
+				</div>
+                <p style="word-break: break-word; text-align: justify;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Summary of camera motions (left) and the PGV-117 dataset characteristics (right). To avoid biasing PGV-117 into certain types of camera motions, 
+					we implement different camera motion strategies. The blue areas represent the glass target. The 117 video sequences are captured with different 
+					types of camera paths, lighting conditions, dynamics, and materials (dark indicates ground glass).
+                </p>
+            </div>
+			<div class="video-results">
+                <h3>Video Results</h3>
+				<video width="100%" controls autoplay muted>  
+					<source src="figures/dynamic_door_daytime2.mp4" type="video/mp4">
+				</video>
+				<video width="100%" controls autoplay muted>  
+					<source src="figures/dynamic_door_inclined_dusk3.mp4" type="video/mp4">
+				</video>
+				<video width="100%" controls autoplay muted>  
+					<source src="figures/HDR_building_inclined3.mp4" type="video/mp4">
+				</video>
+				<video width="100%" controls autoplay muted>  
+					<source src="figures/high-light_building_circle2.mp4" type="video/mp4">
+				</video>
+				<video width="100%" controls autoplay muted>  
+					<source src="figures/outside_building_daytime_inclined2.mp4" type="video/mp4">
+				</video>
+            </div>
+            <div class="Downloads">
+                <h3>Downloads</h3>
+                <p style="font-size: 20px;">Source Code:&nbsp;<a href="#">Code</a></p>
+                <p style="font-size: 20px; margin-top: -10px;">Paper:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Paper</a></p><br>
+                
+
+            </div>
+
+
+            <div class="bibtex">
+                <h5 style="color: gray;">
+                    BibTex
+                </h5>
+                <pre>coming soon</pre>
+            </div>
+            
+        </div>
+   
+    </div>
+</body>
+</html>
+<!--
+    Attention :
+    Alt-B can directly open this html page in Chrome
+-->
+
